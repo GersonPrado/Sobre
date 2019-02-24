@@ -1,0 +1,7 @@
+Function sair()
+	clear All
+	release All
+	close All	
+	Quit	
+end function
+

@@ -1,0 +1,7 @@
+_screen.Caption = "Utilitários"
+_screen.Visible = .T.
+
+set path to .progs;.class;.form
+
+do form MenuPrincipal 
+read events
