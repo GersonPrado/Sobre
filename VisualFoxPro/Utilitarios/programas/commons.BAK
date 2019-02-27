@@ -1,7 +1,9 @@
 Function sair()
-	clear All
-	release All
 	close All	
 	Quit	
 end function
+
+Function geraMemoria()
+	Close Databases
+	Create Cursor curMemoria (numero number(15,2), sequencia integer, operacao char(1))
 

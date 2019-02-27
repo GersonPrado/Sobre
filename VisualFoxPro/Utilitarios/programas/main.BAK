@@ -3,9 +3,12 @@ _screen.Visible = .T.
 _screen.AutoCenter = .T.
 
 set Default To "d:\portifolio\visualfoxpro\utilitarios"
-set path to programas;classes;formularios
+set path to .\programas;.\classes;.\formularios
+set Classlib To biblioteca
 
 Set Procedure to commons addi 
+Close Databases
+Create Cursor curMemoria (numero number(15,2), sequencia integer, operacao char(1)) 
 
 do form MenuPrincipal
 read events
