@@ -8,6 +8,19 @@ import { Alert } from 'selenium-webdriver';
 })
 export class DataBindingComponent implements OnInit {
 
+  onMudouValor(evento) {
+    console.log(evento.novoValor);
+  }
+
+  nomeDoCurso: string ="Curso de Angular"
+  valorInicial: number = 15;
+  pessoa: any = {
+    nome: 'Gerson',
+    idade: '15'
+  }
+
+  nome: string = "ABC";
+
   valorAtual: string = "";
 
   valorDigitado: string = "";
