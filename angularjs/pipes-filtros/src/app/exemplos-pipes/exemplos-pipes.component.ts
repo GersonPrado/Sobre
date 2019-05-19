@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exemplos-pipes.component.css']
 })
 export class ExemplosPipesComponent implements OnInit {
+  
+  valorAsync = new Promise((resolve,reject) => {
+    setTimeout(() =>resolve('Valor assíncrono'),2000)});
+
   filtro: string;
   livros: string[] = ['Java','Angular 2'];
   livro: any = {

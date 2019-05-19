@@ -19,3 +19,9 @@
 <div [hidden]="!mostrarCursos" >
   Não existem cursos para exibição
 </div>
+<br>
+<H5>Removendo o * e usando template</H5>
+
+<div template="ngIf mostrarCursos">
+    Lista de cursos aqui
+</div>

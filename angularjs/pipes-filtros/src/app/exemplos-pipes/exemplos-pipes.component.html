@@ -13,7 +13,6 @@
 <br>
 <input type="text" #novoValor>
 <button (click)="addCurso(novoValor.value)">Adiciona Livro</button>
-<br>
 <p>Pesquisa: </p>
 <input type="text" [(ngModel)]="filtro">
 <p>Lista de Livros Pipe puro</p>
@@ -22,17 +21,16 @@
       {{ liv }}
   </li>
 </ul>
-
 <p>Lista de Livros Pipe impuro</p>
 <ul>
   <li *ngFor="let liv of livros | filtroArrayImpuro:filtro">
       {{ liv }}
   </li>
 </ul>
-
 <p>Filtro de projetos para produção</p>
 <ul>
   <li *ngFor="let liv of obterCurso()">
       {{ liv }}
   </li>
 </ul>
+<p>{{ valorAsync | async }}</p>

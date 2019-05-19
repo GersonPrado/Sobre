@@ -11,12 +11,14 @@ import { CursosModel } from './cursos/cursos.models';
 import { routing } from './app.routing';
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { PagenotFoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent            
+    LoginComponent,
+    PagenotFoundComponent            
   ],
   imports: [
     BrowserModule,
