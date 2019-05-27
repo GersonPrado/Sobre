@@ -1,14 +1,22 @@
-<form>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)"> <!--NgSubmit(Event) EventBinding -->
   <div class="form-group">
     <label for="nome">Nome</label>
-    <input type="text" class="form-control" id="nome" placeholder="Nome">
-  </div>
-  <div class="form-group">
-    <label for="email">E-mail</label>
-    <input type="email" class="form-control" id="email" placeholder="usuario@email.com">
+    <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome"  
+           [(ngModel)]="usuario.nome" required #nome="ngModel" > <!--[(NgModel)]Two-Way_DataBinding atualiza o valor do objeto-->
+      <div class="alert alert-danger" role="alert" *ngIf="!nome.valid && nome.touched">
+      Nome é obrigatório.  
+    </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-  
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input type="email" class="form-control" id="email" placeholder="usuario@email.com" name="email" 
+           [ngModel]="usuario.email" required email #email="ngModel"> <!--[ngModel]PropertyBinding não atualiza o valor do objeto-->
+    <div class="alert alert-danger" role="alert" *ngIf="!email.valid && email.touched">
+      e-mail inválido.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button> <!--[disabled] property binding-->
 </form>
 
