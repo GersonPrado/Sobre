@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF8">
+        <title>Seletores</title>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               $('.div1').css({'margin-bottom':'20px','background':'#ccc'});
+               $('.div1 span').hide().delay('1000').fadeIn(1000).css({'color':'green','font-size':'10px'});
+               $('.div1 > span').css({color:'red','font-size':'20px'});
+               $('.p1 + p').css({'font-size':'35px'});
+               $('#H2').css({'font-size':'45px'});
+            });
+        </script>
+    </head>
+    <body>
+        <div class="div1">
+            <h2>H2 filho de div</h2>
+            <p>P filho de div 
+                <span>SPAN filho de P</span>
+            </p>
+            <span>SPAN filho direto div1</span>
+        </div>
+        <H2 id="H2">H2 fora de Div1</H2>
+        <p class="p1">P1 fora de div1</p>
+        <p>P2 fora de Div1</p>
+        <p>P3 fora de Div1</p>
+    </body>
+</html>
