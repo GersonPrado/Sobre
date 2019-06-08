@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 
 @Component({
   selector: 'app-template-form',
@@ -12,16 +12,18 @@ export class TemplateFormComponent implements OnInit {
   usuario: any = {
     nome:  'Gerson',
     email: 'gprado@gmail.com'
-  }
+  };
 
   onSubmit(form) {
-    this.http.post('https://httpbin.org/post', 
+    this.http.post('https://httpbin.org/post',
                    JSON.stringify(form.value))
                    .subscribe(dados => console.log(dados));
-    
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cepService: ConsultaCepService
+    ) { }
 
   ngOnInit() {
   }
@@ -31,30 +33,28 @@ export class TemplateFormComponent implements OnInit {
   }
 
   aplicaCssErro(campo) {
-    return {  
+    return {
       'has-error': this.verificaValidTouched(campo),
       'form-control-feedback': this.verificaValidTouched(campo)
-    }
+    };
   }
 
-  consultaCEP(cep, form) {
-    var cep = cep.replace(/\D/g,'');
-    
-    if (cep != "") {
-      var validacep = /^[0-9]{8}$/;
+  consultaCEP(cepP: string, form: any) {
+    const cep = cepP.replace(/\D/g, '');
 
-      if(validacep.test(cep)) {
-        
-        this.resetaDadosForm(form)
-        
-        this.http.get(`//viacep.com.br/ws/${cep}/json`).subscribe((dados)=>{
-          this.populaDadosForm(dados, form);
-        });
+    if (cep != null && cep !== '') {
+      const validacep = /^[0-9]{8}$/;
+
+      if (validacep.test(cep)) {
+
+        this.resetaDadosForm(form);
+
+        this.cepService.consultaCEP(cep).subscribe(dados => this.populaDadosForm(dados, form));
       }
     }
   }
 
-  populaDadosForm(dados,form) {
+  populaDadosForm(dados, form) {
     form.form.patchValue({
       endereco: {
         rua: dados.logradouro,
@@ -69,10 +69,10 @@ export class TemplateFormComponent implements OnInit {
      /*form.setValue({
       nome: form.value.nome,
       email: form.value.email,
-      
+
     });*/
   }
-   
+
   resetaDadosForm(form) {
     form.form.patchValue({
       endereco: {
@@ -83,6 +83,6 @@ export class TemplateFormComponent implements OnInit {
         cidade: null,
         estado: null
       }
-    });    
+    });
   }
 }
