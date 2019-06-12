@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, empty } from 'rxjs';
+import { Observable, Subject, empty, EMPTY } from 'rxjs';
 
 import { CursosService } from '../cursos.service';
 import { Curso } from './curso';
@@ -24,7 +24,7 @@ export class CursosListaComponent implements OnInit {
     .pipe(
       catchError(error => {
         this.error$.next(true);
-        return empty();
+        return EMPTY;
       })
     );
   }
