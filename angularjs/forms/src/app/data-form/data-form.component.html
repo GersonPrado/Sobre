@@ -152,8 +152,8 @@
       <div id="frameworks" class="row">
         <div class="checkbox" class="col-sm-3"
           formArrayName="frameworks"
-          *ngFor="let item of formulario.get('frameworks').controls; let i = index" >
-          <label class="checkbox-inline">
+          *ngFor="let item of formulario.controls['frameworks']; let i = index" >
+            <label class="checkbox-inline">
             <input type="checkbox" [formControlName]="i"> {{ frameworks[i] }}
           </label>
         </div>
