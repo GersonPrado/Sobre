@@ -7,7 +7,7 @@
       <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Curso</button>
     </div>
     <div class="card-body">
-      <table class="table table-hover" *ngIf="cursos$ | async as cursoload; else loadingError">
+      <table class="table table-hover" *ngIf="cursos$ | async as cursoload; else loading">
         <thead>
           <tr>
             <th>#</th>
@@ -33,7 +33,10 @@
           </tr>
         </tbody>
       </table>
-      <ng-template #loadingError>
+      <ng-template #loading>
+        <span>Carregando cursos...</span>
+      </ng-template>
+      <!--<ng-template #loadingError>
         <div *ngIf="error$ | async; else loading">
           Erro ao carregar os cursos !
         </div>
@@ -41,6 +44,7 @@
             <span>Carregando cursos...</span>
         </ng-template>
       </ng-template>
+      -->
     </div>
   </div>
 </div>
