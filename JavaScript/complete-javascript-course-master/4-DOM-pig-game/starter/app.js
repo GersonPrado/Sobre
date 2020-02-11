@@ -13,10 +13,13 @@ GAME RULES:
 */
 
 var scores, roundScore, activePlayer;
+var player1, player2;
 
 scores = [0,0]
 roundScore = 0;
 activePlayer = 0;
+scoreWinner = 20;
+scoreWinnerPremium = 17
 
 document.querySelector('.dice').style.display = 'none';
 // document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>
@@ -24,12 +27,77 @@ document.getElementById('score-0').textContent = '0';
 document.getElementById('score-1').textContent = '0';
 document.getElementById('current-0').textContent = '0';
 document.getElementById('current-1').textContent = '0';
+iconActivePlayer();
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
   var dice = Math.floor(Math.random() * 6) + 1;
   var diceDOM = document.querySelector('.dice');
   diceDOM.style.display = 'block';
-  diceDOM.src = 'dice-' + dice + '.png';
-
-
+  diceDOM.src = `dice-${dice}.png`;
+  sumCurrentPlayer(dice);
 });
+
+document.querySelector('.btn-new').addEventListener('click',function(){
+  document.getElementById('name-0').textContent = prompt('Player 1 digite seu nome: ');
+  document.getElementById('name-1').textContent = prompt('Player 2 digite seu nome: ');
+  clearScores();
+  iconActivePlayer(true);
+});
+
+document.querySelector('.btn-hold').addEventListener('click', function(){ 
+  sumScoreCurrentPlayer();
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  clearCurrentScores();
+  iconActivePlayer();  
+});
+
+function clearScores(){
+  scores = [0,0]
+  roundScore = 0;
+  activePlayer = 0;  
+};
+
+function sumCurrentPlayer(dice){
+  document.getElementById(`current-${activePlayer}`).textContent = roundScore +=dice;
+}
+
+function clearCurrentScores(){
+  roundScore = 0;
+  document.getElementById(`current-${activePlayer}`).textContent = 0;
+}
+
+function sumScoreCurrentPlayer(){
+  scores[activePlayer] += roundScore;
+  document.getElementById(`score-${activePlayer}`).textContent = scores[activePlayer];
+  validWinnerPlayer();
+}
+
+function validWinnerPlayer(){
+  var scoreValid = document.getElementById(`score-${activePlayer}`).textContent
+  switch (scoreValid) {
+    case  17:
+      break;
+    case  20:
+      break;
+    case scoreValid < 21:
+      break; 
+  }
+}
+
+function validLoserPlayer(){
+
+}
+
+function iconActivePlayer(){
+  if (activePlayer === 0){
+    var element0 = document.getElementById(`player-0-panel`);
+    element0.classList.add('active');
+    var element1 = document.getElementById(`player-1-panel`);
+    element1.classList.remove('active');
+  } else{
+      var element1 = document.getElementById(`player-1-panel`);
+      element1.classList.add('active');
+      var element0 = document.getElementById(`player-0-panel`);
+      element0.classList.remove('active');
+  }  
+}
