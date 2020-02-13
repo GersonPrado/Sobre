@@ -20,6 +20,8 @@ roundScore = 0;
 activePlayer = 0;
 scoreWinner = 20;
 scoreWinnerPremium = 17
+validWinner = false;
+validLoser = false;
 
 document.querySelector('.dice').style.display = 'none';
 // document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>
@@ -38,10 +40,12 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 });
 
 document.querySelector('.btn-new').addEventListener('click',function(){
-  document.getElementById('name-0').textContent = prompt('Player 1 digite seu nome: ');
-  document.getElementById('name-1').textContent = prompt('Player 2 digite seu nome: ');
+  validWinner = false;
+  validLoser = false;
   clearScores();
   iconActivePlayer(true);
+  document.getElementById('name-0').textContent = prompt('Player 1 digite seu nome: ');
+  document.getElementById('name-1').textContent = prompt('Player 2 digite seu nome: ');
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function(){ 
@@ -54,7 +58,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 function clearScores(){
   scores = [0,0]
   roundScore = 0;
-  activePlayer = 0;  
+  activePlayer = 0; 
 };
 
 function sumCurrentPlayer(dice){
@@ -73,19 +77,38 @@ function sumScoreCurrentPlayer(){
 }
 
 function validWinnerPlayer(){
-  var scoreValid = document.getElementById(`score-${activePlayer}`).textContent
-  switch (scoreValid) {
-    case  17:
+  var scoreValid = document.getElementById(`score-${activePlayer}`).textContent  
+
+  switch (true) {
+    case  parseInt(scoreValid) === 17:
+      validWinner = true;
+      alert('Parabéns você atingiu pontuação coringa')
       break;
-    case  20:
+    case  parseInt(scoreValid) === 20:
+      validWinner = true;
+      alert('Parabéns você atingiu pontuação.')
       break;
-    case scoreValid < 21:
-      break; 
-  }
+    case parseInt(scoreValid) > 20:
+      validLoser = true;
+      alert('Sinto muito você ultrapassou a pontuação.')
+      break;
+    }
+    validPlay();
 }
 
-function validLoserPlayer(){
-
+function validPlay(){
+  if (validLoser === true) {
+    var element = document.getElementById(`player-${activePlayer}-panel`);
+    element.classList.remove('active');
+    element.classList.add('loserPlayer');
+  }
+  
+  if (validWinner === true) {
+    var element = document.getElementById(`player-${activePlayer}-panel`);
+    element.classList.remove('active');
+    element.classList.add('winnerPlayer');
+    document.getElementById(`name-${activePlayer}`).textContent = 'CONGRATULATIONS'
+  }
 }
 
 function iconActivePlayer(){

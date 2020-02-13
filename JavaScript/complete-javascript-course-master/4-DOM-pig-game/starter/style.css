@@ -70,8 +70,16 @@ body {
     margin-bottom: 130px;
 }
 
-.active { background-color: #f7f7f7; }
+.active { background-color: rgb(77, 211, 235); }
 .active .player-name { font-weight: 300; }
+.loserPlayer { background-color: rgb(52, 53, 53); }
+.winnerPlayer { 
+    background-color: rgb(7, 252, 7); 
+    border-style: dotted ;
+    font-weight: 200;
+    font-weight: bold;
+    
+}
 
 .active .player-name::after {
     content: "\2022";
@@ -79,8 +87,7 @@ body {
     position: absolute;
     color: #EB4D4D;
     top: -7px;
-    right: 10px;
-    
+    right: 10px;    
 }
 
 .player-current-box {
