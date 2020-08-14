@@ -32,7 +32,7 @@ e garantia para operação de grandes riscos utilizando Visual FoxPro, banco de 
 nativo (DBF) e Oracle.
 
 #### Linx Analista Programador Pleno
-Atuo como analista programador desenvolvendo e sustentado softwares voltado para o varejo ERP e PDV.
+Atuação como analista programador desenvolvendo e sustentado softwares voltado para o varejo ERP e PDV.
 Atuei nos projetos de homologação PAF ECF em 2015, Motor de Promoção, Ticket Presente.
 
 #### Tampo Informática Analista Programador Pleno
