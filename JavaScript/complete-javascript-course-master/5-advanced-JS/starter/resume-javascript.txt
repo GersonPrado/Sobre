@@ -1,7 +1,0 @@
-JavaScript Básico
-. Todo objeto Javascript possui um propriedade prototype, sendo que o prototype irá permitir aplicar
-o conceito de herança.
-. A propriedade prototype recebe os métodos e as propriedades que poderão ser herdadas por outros objetos
-. As chamadas de métodos ou propriedades serão executadas das classes filha para a pai até que encontrem
-o método ou propriedade chamada ou chegue ao pai de todos Object.
-
