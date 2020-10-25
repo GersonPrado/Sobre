@@ -9,6 +9,9 @@ VSCode, Visual Studio 2017+, SQL Management Studio, Eclipse Oxygen,
 Jira, Bitbucket, GitHub, Trello, Slack, Postman, SoapUI
 
 ## Histórico profissional
+### Itaú Unibanco - Analista de Sistemas Sênior
+Membro da squad de operações financeiras.
+
 ### AUTOPASS - Analista de Sistemas Sênior Java
 Atuação no projeto de desenvolvimento de aplicações para ATMs e seus periféricos.
 Atuação junto a área de sustentação de sistemas na analise acompanhamento e solução de incidentes.
