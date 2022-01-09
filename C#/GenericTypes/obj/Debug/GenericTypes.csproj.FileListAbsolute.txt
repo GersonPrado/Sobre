@@ -1,0 +1,7 @@
+D:\desenv\Portifolio\C#\GenericTypes\bin\Debug\GenericTypes.exe.config
+D:\desenv\Portifolio\C#\GenericTypes\bin\Debug\GenericTypes.exe
+D:\desenv\Portifolio\C#\GenericTypes\bin\Debug\GenericTypes.pdb
+D:\desenv\Portifolio\C#\GenericTypes\obj\Debug\GenericTypes.csprojAssemblyReference.cache
+D:\desenv\Portifolio\C#\GenericTypes\obj\Debug\GenericTypes.csproj.CoreCompileInputs.cache
+D:\desenv\Portifolio\C#\GenericTypes\obj\Debug\GenericTypes.exe
+D:\desenv\Portifolio\C#\GenericTypes\obj\Debug\GenericTypes.pdb
